@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="calendar">
+        <div class="month_year">
+            <button data-about="prev">
+                <svg viewBox="0 0 16 16">
+                    <use href="#arrow"></use>
+                </svg>
+            </button>
+            <span></span>
+            <button data-about="next">
+                <svg viewBox="0 0 16 16" style="transform: rotate(180deg);">
+                    <use href="#arrow"></use>
+                </svg>
+            </button>
+        </div>
+        <div class="shorts">
+            <div>Пн</div>
+            <div>Вт</div>
+            <div>Ср</div>
+            <div>Чт</div>
+            <div>Пт</div>
+            <div>Сб</div>
+            <div>Вс</div>
+        </div>
+        <div class="days_container"></div>
+        <div class="today">
+            <button data-about="today">
+                <svg viewBox="0 0 16 16">
+                    <use href="#arrow"></use>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="arrow" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" pointer-events="none">
+            <path d="m3.9 8.8 5.4 4.7a1 1 0 0 0 1.7-.7V3.2a1 1 0 0 0-1.7-.7L4 7.2a1 1 0 0 0 0 1.6z"></path>
+        </symbol>
+    </svg>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

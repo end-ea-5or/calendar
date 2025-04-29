@@ -1,0 +1,156 @@
+:root {
+    --main-color: 16, 63, 111;
+    --dark-color: 8 26 53;
+
+    --cell-size: 3.43rem;
+    --cell-gap: 0.55rem;
+    --row-gap: 1rem;
+
+    @media (max-width: 500px) {
+        --cell-size: 11vw;
+    }
+}
+
+html {
+    font-size: 16px;
+    font-weight: 500;
+
+    @media (max-width: 350px) {
+        font-size: 14px;
+    }
+}
+
+body {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    overflow: hidden !important;
+    margin: 0;
+    padding: 0;
+    background: radial-gradient(at 69.37382382812649% 16.483454230073935%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%), radial-gradient(at 41.98630268104373% 36.06141237525249%, hsla(0, 0%, 94.11764705882352%, 1) 0%, hsla(0, 0%, 94.11764705882352%, 0) 100%), radial-gradient(at 28.273178202681958% 16.02034611910399%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%), radial-gradient(at 75.04907431650824% 34.073577231183386%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%), radial-gradient(at 1.4006744520902892% 10.032862807780973%, hsla(0, 0%, 94.11764705882352%, 1) 0%, hsla(0, 0%, 94.11764705882352%, 0) 100%), radial-gradient(at 98.44071289027194% 82.81262260494398%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#calendar {
+    position: relative;
+    display: grid;
+    gap: var(--row-gap);
+    width: calc(var(--cell-size) * 7 + var(--cell-gap) * 6);
+    font-family: inherit;
+    font-size: 1.4rem;
+    color: rgb(var(--dark-color));
+}
+
+.month_year,
+.shorts,
+.days_container>div,
+.today {
+    display: grid;
+    grid-template-columns: repeat(7, var(--cell-size));
+    grid-auto-rows: var(--cell-size);
+    gap: var(--cell-gap);
+}
+
+.month_year {
+    align-items: center;
+    font-weight: 700;
+
+    & span {
+        grid-column: 2 / -2;
+        text-transform: capitalize;
+        text-align: center;
+    }
+}
+
+button[data-about] {
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    align-self: stretch;
+    width: 2.9rem;
+    padding: 0;
+    border-radius: 0.3rem;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    color: rgba(var(--main-color), 0.8);
+    font-size: inherit;
+    line-height: normal;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: color 0.1s;
+
+    & svg {
+        width: 2rem;
+        height: auto;
+    }
+
+    &:active {
+        color: #eee12fb2;
+    }
+}
+
+.shorts {
+    font-weight: 700;
+
+    & div {
+        display: grid;
+        place-items: center;
+    }
+}
+
+.days_container {
+    position: relative;
+    width: 100%;
+    height: calc(var(--cell-size) * 6 + var(--cell-gap) * 5);
+    overflow: hidden;
+
+    &>div {
+        position: absolute;
+    }
+}
+
+.days_item {
+    display: grid;
+    place-items: center;
+    border-radius: 0.3rem;
+    opacity: 0.6;
+}
+
+.days_item_active {
+    background: linear-gradient(45deg, #fff1eb54, #83cff165);
+    box-shadow: inset rgba(144, 231, 247, 0.575) 0px 1px 3px 0px, inset rgba(203, 229, 255, 0.61) 0px 0px 0px 1px;
+    opacity: 1;
+}
+
+.days_item_today {
+    background: linear-gradient(45deg, #adee348a, #f1e42e9c);
+}
+
+.today {
+    align-items: center;
+}
+
+.prev {
+    transform: translateX(calc(-100% - var(--cell-gap)));
+}
+
+.current {
+    transform: translateX(0);
+}
+
+.next {
+    transform: translateX(calc(100% + var(--cell-gap)));
+}
