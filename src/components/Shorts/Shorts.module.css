@@ -1,0 +1,11 @@
+.shorts {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--cell-gap);
+
+    & div {
+        display: grid;
+        place-items: center;
+        aspect-ratio: 1 / 1;
+    }
+}

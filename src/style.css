@@ -1,0 +1,51 @@
+:root {
+	--main-color: 16, 63, 111;
+	--dark-color: 8 26 53;
+	--transition-duration-ms: 300ms;
+	--cell-size: 4.3rem;
+	--gap-size: 0.6rem;
+}
+
+@media (max-width: 600px) {
+	:root {
+		/* 6 --gap-size между столбцами календаря 
+		и еще 6 - чтобы ширина календаря была не на всю ширину экрана, имитация паддингов  */
+		--cell-size: calc((100vw - var(--gap-size) * 12) / 7);
+	}
+}
+
+html {
+	font-size: 16px;
+	font-weight: 500;
+}
+
+body {
+	display: grid;
+	place-items: center;
+	width: 100vw;
+	height: 100dvh;
+	font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	overflow: hidden !important;
+	margin: 0;
+	padding: 0;
+	background: radial-gradient(at 69.37382382812649% 16.483454230073935%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%), radial-gradient(at 41.98630268104373% 36.06141237525249%, hsla(0, 0%, 94.11764705882352%, 1) 0%, hsla(0, 0%, 94.11764705882352%, 0) 100%), radial-gradient(at 28.273178202681958% 16.02034611910399%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%), radial-gradient(at 75.04907431650824% 34.073577231183386%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%), radial-gradient(at 1.4006744520902892% 10.032862807780973%, hsla(0, 0%, 94.11764705882352%, 1) 0%, hsla(0, 0%, 94.11764705882352%, 0) 100%), radial-gradient(at 98.44071289027194% 82.81262260494398%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 1) 0%, hsla(203.30935251798562, 78.5310734463277%, 34.705882352941174%, 0) 100%);
+}
+
+#app {
+	display: grid;
+	place-items: center;
+}
+
+#modal {
+	position: fixed;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}

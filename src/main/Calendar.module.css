@@ -1,0 +1,60 @@
+.calendar {
+    position: relative;
+    display: grid;
+    gap: var(--gap-size);
+    width: calc(var(--cell-size) * 7 + var(--gap-size) * 6);
+    font-family: inherit;
+    font-size: 1.4rem;
+    color: rgb(var(--dark-color));
+}
+
+@media (min-width: 600px) {
+    
+}
+
+.month_year {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: var(--gap-size);
+    text-transform: capitalize;
+}
+
+.arrow {
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1 / 1;
+    grid-column: span 1;
+}
+
+.date {
+    grid-column: span 5;
+    display: grid;
+    place-items: center;
+}
+
+.days_container {
+    display: grid;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: calc(var(--cell-size) * 6 + var(--gap-size) * 5);
+}
+
+.days_item {
+    position: absolute;
+    width: 100%;
+    transition: transform var(--transition-duration-ms) ease;
+    transition-timing-function: ease;
+}
+
+.days_item:nth-of-type(1) {
+    transform: translateX(calc(-100% - var(--gap-size)));
+}
+
+.days_item:nth-of-type(2) {
+    transform: translateX(0);
+}
+
+.days_item:nth-of-type(3) {
+    transform: translateX(calc(100% + var(--gap-size)));
+}
