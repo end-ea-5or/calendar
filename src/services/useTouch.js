@@ -4,6 +4,7 @@ const THRESHOLD_SPEED = 0.5;
 
 export default function useTouch(calendarRef, changeMonthHandler) {
     const calendarWidth = useRef(null);
+    const activeTouchId = useRef(null);
     const startX = useRef(null);
     const deltaX = useRef(null);
     const currentX = useRef(null);
@@ -41,6 +42,9 @@ export default function useTouch(calendarRef, changeMonthHandler) {
 
     function touchStartHandler(e) {
         if (!calendarWidth.current) calendarWidth.current = getWidth(calendarRef);
+        if (activeTouchId.current !== null) return;
+
+        activeTouchId.current = e.changedTouches[0].identifier;
         startX.current = e.changedTouches[0].clientX;
         deltaX.current = 0;
         startTime.current = Date.now();
@@ -51,10 +55,13 @@ export default function useTouch(calendarRef, changeMonthHandler) {
     }
 
     function touchMoveHandler(e) {
-        currentX.current = e.changedTouches[0].clientX;
+        const touch = [...e.changedTouches].find(t => t.identifier === activeTouchId.current);
+        if (!touch) return;
+
+        currentX.current = touch.clientX;
         deltaX.current = currentX.current - startX.current;
         if (Math.abs(deltaX.current) > calendarWidth.current) return;
-        
+
         prevMonth.current.style.transition = 'none';
         currentMonth.current.style.transition = 'none';
         nextMonth.current.style.transition = 'none';
@@ -65,7 +72,12 @@ export default function useTouch(calendarRef, changeMonthHandler) {
     }
 
     function touchEndHandler(e) {
-        if (deltaX.current === 0) return;
+        const touch = [...e.changedTouches].find(t => t.identifier === activeTouchId.current);
+        if (!touch) return;
+        if (deltaX.current === 0) {
+            activeTouchId.current = null;
+            return
+        };
 
         const length = e.changedTouches.length;
         const endX = e.changedTouches[length - 1].clientX;
@@ -86,5 +98,7 @@ export default function useTouch(calendarRef, changeMonthHandler) {
         prevMonth.current = null;
         currentMonth.current = null;
         nextMonth.current = null;
+
+        activeTouchId.current = null;
     }
 }
