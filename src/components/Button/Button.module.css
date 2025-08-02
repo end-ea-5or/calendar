@@ -1,0 +1,24 @@
+.button {
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    align-self: stretch;
+    padding: 0;
+    border-radius: 0.3rem;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    color: rgb(var(--dark-color));
+    font-size: inherit;
+    line-height: normal;
+    appearance: none;
+    -webkit-appearance: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    transition: color 0.1s linear, background-color 0.1s linear, opacity 0.1s linear;
+}
+
+.button:not(:disabled):active {
+    opacity: 0.7;
+}

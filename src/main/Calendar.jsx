@@ -4,11 +4,12 @@ import MonthYear from "../components/MonthYear/MonthYear"
 import Shorts from "../components/Shorts/Shorts"
 import { useHelpers } from "./useHelpers"
 import useTouch from "../services/useTouch"
+import TodayButton from "../components/TodayButton/TodayButton"
 
 import styles from "./Calendar.module.css"
 
 export default function Calendar() {
-    const { months, calendarRef, changeMonth } = useHelpers();
+    const { months, calendarRef, changeMonth, onClickToday } = useHelpers();
     useTouch(calendarRef, changeMonth);
 
     return (
@@ -27,6 +28,9 @@ export default function Calendar() {
                         date={month}
                     />
                 )}
+            </div>
+            <div class={styles.today_container}>
+                <TodayButton currDate={months[1]} onClick={onClickToday}/>
             </div>
         </div>
     )

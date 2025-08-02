@@ -1,31 +1,11 @@
 .button {
-    display: grid;
-    grid-auto-flow: column;
-    place-items: center;
-    align-self: stretch;
-    padding: 0;
-    border-radius: 0.3rem;
-    border: none;
-    cursor: pointer;
-    user-select: none;
-    background-color: transparent;
-    color: rgba(var(--main-color), 0.8);
-    font-size: inherit;
-    line-height: normal;
-    appearance: none;
-    -webkit-appearance: none;
-    transition: color 0.1s;
 
     & svg {
-        width: 50%;
+        width: 60%;
         height: auto;
-    }
-
-    &:active {
-        color: #eee12fb2;
     }
 }
 
-.right svg{
+.right svg {
     transform: rotate(180deg);
 }

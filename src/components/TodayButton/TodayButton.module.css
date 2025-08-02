@@ -1,0 +1,24 @@
+.button {
+    min-height: var(--cell-size);
+    padding: 0 1.7rem;
+    border-radius: 0.6rem;
+    background-color: rgba(var(--dark-color), 0.5);
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+
+    & svg {
+        width: 60%;
+        height: auto;
+    }
+}
+
+.button.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.button:not(:disabled):active {
+    opacity: 1;
+    background-color: rgba(var(--dark-color), 0.3);
+}

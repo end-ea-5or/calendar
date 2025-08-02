@@ -18,11 +18,13 @@ export default function useTouch(calendarRef, changeMonthHandler) {
         document.addEventListener('touchstart', touchStartHandler);
         document.addEventListener('touchmove', touchMoveHandler);
         document.addEventListener('touchend', touchEndHandler);
+        document.addEventListener('touchcancel', touchEndHandler);
         window.addEventListener('resize', getCalendarSize);
         return () => {
             document.removeEventListener('touchstart', touchStartHandler);
             document.removeEventListener('touchmove', touchMoveHandler);
             document.removeEventListener('touchend', touchEndHandler);
+            document.removeEventListener('touchcancel', touchEndHandler);
             window.removeEventListener('resize', getCalendarSize);
         }
     }, []);

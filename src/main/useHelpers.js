@@ -21,9 +21,22 @@ export function useHelpers() {
         })
     }
 
+    const onClickToday = () => {
+        calendarRef.current.querySelectorAll('[data-about="month"]').forEach(item => {
+            item.style.transition = 'none';
+        });
+
+        setMonths([
+            new Date(new Date().getFullYear(), new Date().getMonth() - 1),
+            new Date(),
+            new Date(new Date().getFullYear(), new Date().getMonth() + 1)
+        ])
+    }
+
     return {
         months,
         calendarRef,
-        changeMonth
+        changeMonth,
+        onClickToday
     }
 }

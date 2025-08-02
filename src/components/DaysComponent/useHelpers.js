@@ -6,18 +6,6 @@ export function useHelpers(date) {
     
     const days = useMemo(() => generateMonthDays(year, month), [year, month])
     
-    // days.forEach((item) => {
-    //     const className = this.getClassNameDay(item);
-    //     const day = document.createElement('div');
-    //     day.classList.value = className;
-    //     day.textContent = typeof item === 'object' ? item.getDate() : item;
-    //     daysTemplate.append(day);
-    // });
-    // this.getMonthYear();
-    // daysTemplate.classList.add(whatMonth);
-    // this.daysContainer.append(daysTemplate);
-    // daysTemplate.style.transition = `transform ${this.TRANSITION_DURATION}s ease`;
-
     return { days }
 }
 

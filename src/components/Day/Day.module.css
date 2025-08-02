@@ -3,16 +3,16 @@
     place-items: center;
     width: var(--cell-size);
     height: var(--cell-size);
-    border-radius: 0.3rem;
-    opacity: 0.6;
+    border-radius: 0.6rem;
+    opacity: 0.5;
 }
 
 .active {
-    background: linear-gradient(45deg, #fff1eb54, #83cff165);
-    box-shadow: inset rgba(144, 231, 247, 0.575) 0px 1px 3px 0px, inset rgba(203, 229, 255, 0.61) 0px 0px 0px 1px;
     opacity: 1;
+    color: white;
 }
 
 .today {
-    background: linear-gradient(45deg, #adee348a, #f1e42e9c);
+    color: rgb(57, 58, 77);
+    background-color: rgb(var(--today-color));
 }
