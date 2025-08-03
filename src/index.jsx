@@ -1,6 +1,6 @@
 import { render } from 'preact';
-import Calendar from './main/Calendar';
+import Main from './Main/Main';
 
 import './style.css';
 
-render(<Calendar />, document.getElementById('app'));
+render(<Main />, document.getElementById('app'));

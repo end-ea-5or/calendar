@@ -15,4 +15,5 @@
 .today {
     color: rgb(57, 58, 77);
     background-color: rgb(var(--today-color));
+    /* box-shadow: inset rgb(var(--today-color)) 0px 3px 0px 0px, inset rgb(var(--today-color)) 0px 0px 0px 3px; */
 }

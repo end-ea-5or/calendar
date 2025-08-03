@@ -37,6 +37,7 @@
 
 .days_item {
     position: absolute;
+    z-index: 1;
     width: 100%;
     transition: transform var(--transition-duration-ms) ease;
     transition-timing-function: ease;

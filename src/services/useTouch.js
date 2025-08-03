@@ -15,16 +15,17 @@ export default function useTouch(calendarRef, changeMonthHandler) {
     const nextMonth = useRef(null);
 
     useEffect(() => {
-        document.addEventListener('touchstart', touchStartHandler);
-        document.addEventListener('touchmove', touchMoveHandler);
-        document.addEventListener('touchend', touchEndHandler);
-        document.addEventListener('touchcancel', touchEndHandler);
+        if (!calendarRef.current) return;
+        calendarRef.current.addEventListener('touchstart', touchStartHandler);
+        calendarRef.current.addEventListener('touchmove', touchMoveHandler);
+        calendarRef.current.addEventListener('touchend', touchEndHandler);
+        calendarRef.current.addEventListener('touchcancel', touchEndHandler);
         window.addEventListener('resize', getCalendarSize);
         return () => {
-            document.removeEventListener('touchstart', touchStartHandler);
-            document.removeEventListener('touchmove', touchMoveHandler);
-            document.removeEventListener('touchend', touchEndHandler);
-            document.removeEventListener('touchcancel', touchEndHandler);
+            calendarRef.current.removeEventListener('touchstart', touchStartHandler);
+            calendarRef.current.removeEventListener('touchmove', touchMoveHandler);
+            calendarRef.current.removeEventListener('touchend', touchEndHandler);
+            calendarRef.current.removeEventListener('touchcancel', touchEndHandler);
             window.removeEventListener('resize', getCalendarSize);
         }
     }, []);

@@ -1,0 +1,38 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: var(--padding);
+    overflow: hidden;
+}
+
+@media (min-width: 750px) {
+	.page{
+		width: 750px;
+        margin: 0 auto;
+	}
+}
+
+.settings_button_container {
+    position: relative;
+}
+
+.burger_button {
+    position: absolute;
+    right: 0;
+    z-index: 10;
+}
+
+.settings_container {
+    width: 100%;
+    height: var(--cell-size);
+}
+
+.calendar_container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

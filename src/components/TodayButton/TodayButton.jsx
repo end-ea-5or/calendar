@@ -1,4 +1,3 @@
-// @ts-ignore
 import { useEffect, useState } from "preact/hooks";
 import Button from "../Button/Button";
 

@@ -1,0 +1,26 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    backdrop-filter: blur(0px);
+    background-color: rgba(0, 0, 0, 0);
+    transition: background-color 0.1s linear;
+}
+
+.overlay.visible {
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.settings {
+    opacity: 0;
+}
+
+.settings_list {
+    list-style: none;
+    margin: 0;
+    padding: var(--padding);
+    font-size: 1.4rem;
+    font-weight: 400;
+}

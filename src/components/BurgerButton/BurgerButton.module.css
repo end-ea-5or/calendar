@@ -1,0 +1,63 @@
+:root {
+    --item-width: calc(var(--cell-size) * 0.60);
+    --item-height: calc(var(--cell-size) * 0.06);
+    --indent: calc(var(--cell-size) * 0.2);        /* 0.2 => (1 - 0.60) / 2 */
+    --top-middle: calc((var(--cell-size) - var(--indent) * 2 - var(--item-height)) / 2);
+    --color: white;
+}
+
+.burger {
+    position: relative;
+    width: var(--cell-size);
+    height: var(--cell-size);
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border: none;
+    background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.burger::before,
+.burger::after {
+    position: absolute;
+    content: '';
+    left: var(--indent);
+    width: var(--item-width);
+    height: var(--item-height);
+    border-radius: 0.5rem;
+    background: var(--color);
+}
+
+.burger::before {
+    top: var(--indent);
+    box-shadow: 0 var(--top-middle) 0 var(--color);
+    transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
+}
+
+.burger::after {
+    bottom: var(--indent);
+    transition: bottom .3s .15s, transform .3s;
+}
+
+.burger_checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+
+
+.burger:has(.burger_checkbox:checked)::before {
+    top: calc(var(--indent) + var(--top-middle));
+    transform: rotate(45deg);
+    box-shadow: 0 var(--top-middle) 0 rgba(0, 0, 0, 0);
+    transition: box-shadow .15s, top .3s, transform .3s .15s;
+}
+
+.burger:has(.burger_checkbox:checked)::after {
+    bottom: calc(var(--indent) + var(--top-middle));
+    transform: rotate(-45deg);
+    transition: bottom .3s, transform .3s .15s;
+}
