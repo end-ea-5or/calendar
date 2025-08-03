@@ -7,5 +7,6 @@ export default defineConfig({
 	plugins: [preact(), svgr()],
 	server: {
 		host: true
-	}
+	},
+	base: '/calendar'
 });
